@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reserva de plaza  bootcamp</title>
+</head>
+<body>
+
+    <main>
+        <h1>Reserva de plaza bootcamp</h1>
+
+        <form action="/reservar" method="POST">
+
+            <fieldset>
+                <legend>Datos personales</legend>
+                <p>
+                    <label for="full-name">Nombre completo:</label><br>
+                    <input type="text" id="full-name" name="full_name" required>
+                </p>
+                <p>
+                    <label for="email">Correo electrónico:</label><br>
+                    <input type="email" id="email" name="email" required>
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Modalidad de estudio</legend>
+                <p id="modalidad-desc">Selecciona la opción que mejor se adapte a tu disponibilidad horaria.</p>
+                
+                <input type="radio" id="presencial" name="modalidad" value="presencial" checked aria-describedby="modalidad-desc">
+                <label for="presencial">Presencial (Sede Malaga/Ciudad Jardin)</label><br>
+
+                <input type="radio" id="remoto" name="modalidad" value="remoto" aria-describedby="modalidad-desc">
+                <label for="remoto">Remoto en vivo (Streaming)</label><br>
+
+                <input type="radio" id="hibrido" name="modalidad" value="hibrido" aria-describedby="modalidad-desc">
+                <label for="hibrido">Híbrido (2 días presenciales, Lunes y Miércoles)</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Áreas de interés</legend>
+                <p>Puedes marcar todas las que desees profundizar:</p>
+                
+                <input type="checkbox" id="frontend" name="intereses" value="frontend">
+                <label for="frontend">Frontend</label><br>
+
+                <input type="checkbox" id="backend" name="intereses" value="backend">
+                <label for="backend">Backend</label><br>
+
+                <input type="checkbox" id="devops" name="intereses" value="devops">
+                <label for="devops">DevOps & Cloud</label><br>
+
+                <input type="checkbox" id="uxui" name="intereses" value="uxui">
+                <label for="uxui">Diseño UX/UI</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Sobre tu perfil</legend>
+                <p>
+                    <label for="motivation">¿Por qué quieres participar en este bootcamp?</label><br>
+                    <textarea id="motivation" name="motivation" rows="5" cols="40" placeholder="Cuéntanos tus expectativas..."></textarea>
+                </p>
+            </fieldset>
+
+            <p>
+                <button type="submit">Enviar mi reserva </button>
+            </p>
+
+        </form>
+    </main>
+
+</body>
+</html>
