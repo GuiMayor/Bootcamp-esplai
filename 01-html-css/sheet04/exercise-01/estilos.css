@@ -1,0 +1,19 @@
+nav a {
+    color: blue;
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+nav > a {
+    color: brown;
+}
+h2 + p {
+    margin-top: none;
+}
+input[required]{
+color: rgb(240, 32, 32);
+
+}
+input[type="email"]{
+    background-color: rgb(255, 0, 21);
+}
