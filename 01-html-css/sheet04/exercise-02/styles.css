@@ -1,0 +1,24 @@
+a:hover:last-child {
+  background-color: #df0f0f;
+}
+button:focus-visible:last-child {
+  outline: 6px solid #211e1e;
+}
+input[type="checkbox"]:checked {
+  accent-color: #0fdf0f;
+}
+input[disabled] {
+    background-color: #d41313;
+    color: #f0eeee;
+}
+li:first-child {
+  font-size: 1.2em;
+  color: #0fdf0f;
+}
+li:last-child {
+  font-size: 1.2em;
+  color: #eaf60a;
+}
+li:nth-child(2n) {
+  background-color: #d41313;
+}
