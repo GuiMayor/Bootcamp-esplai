@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+.caja-compartida {
+  width: 50%;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  margin: 10px 0;
+  border-radius: 15px;
+
+}
+.caja-compartida:nth-child(2) {
+    padding: 50px;
+    
+}
+.caja-compartida:nth-child(3) {
+    margin: 50px;
+}
