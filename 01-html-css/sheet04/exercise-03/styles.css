@@ -1,0 +1,12 @@
+section:nth-of-type(1) ul li:before {
+    content: "👉";
+}
+section:nth-of-type(2) ul li::after {
+    content: "👈";
+}
+input::placeholder {
+    color:rosybrown;
+}
+::selection {
+    background: rgb(98, 242, 41);
+}
