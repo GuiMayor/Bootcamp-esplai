@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Pseudo-clase</title>
+</head>
+<body>
+    <header>
+        <h1>Ejercicio de Pseudo-clase</h1>
+    </header>
+
+    <section>
+        <h2>Enlaces</h2>
+        <a href="https://www.google.com">Ir a Google</a> | 
+        <a href="https://www.wikipedia.org">Ir a Wikipedia</a>
+    </section>
+
+    <section>
+        <h2>Botones</h2>
+        <button class="button" onclick="alert('Botón 1 clicado')">Botón 1</button>
+        <button class="button" onclick="alert('Botón 2 clicado')">Botón 2</button>
+    </section>
+
+    
+    <section>
+        <h2>Lista</h2>
+        <ul>
+            <li>Consulta</li>
+            <li>Información</li>
+            <li>Busqueda</li>
+            <li>Enciclopedia</li>
+            <li>Fotos</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Formulario</h2>
+        <form action="/submit" method="post">
+            <label for="nombre">Texto:</label><br>
+            <input type="text" id="nombre" name="nombre" placeholder="Escribe algo..."><br><br>
+            
+            <input type="checkbox" id="check" name="check">
+            <label for="check">Aceptar términos</label><br><br>
+            
+            <label for="desactivado">Campo desactivado:</label><br>
+            <input type="text" id="desactivado" name="desactivado" value="No editable" disabled>
+        </form>
+    </section>
+</body>
+</html>
