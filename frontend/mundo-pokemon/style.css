@@ -1,0 +1,92 @@
+:root {
+    --color-fondo: #ffcb05;
+    --color-blanco: #ffffff;
+    --fuente-principal: 'Ubuntu', sans-serif;
+    --espaciado-base: 20px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-fondo);
+    font-family: var(--fuente-principal);
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.wrapper {
+    width: 100%;
+    max-width: 1100px; 
+    padding: var(--espaciado-base);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px; 
+}
+
+.search-pokemon {
+    width: 100%;
+    max-width: 500px;
+}
+
+.search-pokemon input {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: var(--fuente-principal);
+    outline: none;
+}
+.pokemon-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espaciado-base); 
+    width: 100%;
+    margin-top: 20px;
+}
+.card {
+    background-color: var(--color-blanco);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+.card-imagen {
+    background-color: #f2f2f2; 
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    position: relative; 
+}
+
+.card-imagen img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain; 
+}
+
+.card-badge {
+    position: absolute;
+    bottom: 0;
+    left: 0;  
+    background-color: rgba(0, 0, 0, 0.05); 
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    color: #888;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 300; 
+}
