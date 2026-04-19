@@ -1,4 +1,35 @@
 import React from 'react';
+import PanelHeader from './components/Ejercicio09/PanelHeader';
+import GeneralInfo from './components/Ejercicio09/GeneralInfo';
+import RulesAndTips from './components/Ejercicio09/RulesAndTips';
+import TechList from './components/Ejercicio09/TechList';
+import PanelFooter from './components/Ejercicio09/PanelFooter';
+
+function App() {
+  return (
+    <main className="dashboard-container">
+      <PanelHeader />
+      <div className="dashboard-content">
+        <GeneralInfo />
+        <RulesAndTips />
+        <TechList />
+      </div>
+      <PanelFooter />
+    </main>
+  );
+}
+export default App;
+
+
+
+
+
+
+
+
+
+
+/*============ejercicio 07===================
 import MainHeader from './components/Ejercicio07/MainHeader';
 import LearningObjectives from './components/Ejercicio07/LearningObjectives';
 import TargetAudience from './components/Ejercicio07/TargetAudience';
@@ -17,7 +48,7 @@ function App() {
   );
 }
 
-export default App;
+export default App;*/
 
 
 
