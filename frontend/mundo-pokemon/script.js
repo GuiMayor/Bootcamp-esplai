@@ -76,7 +76,7 @@ function crearTarjeta(pokemon) {
   const article = document.createElement("article");
   article.classList.add("card");
 
-  
+  // crear el contenedor de la imagen y el badge (ID)
   const contenedorImagen = document.createElement("div");
   contenedorImagen.classList.add("card-imagen");
 
@@ -114,13 +114,11 @@ function crearTarjeta(pokemon) {
   return article;
 }
 
-
 function renderizarListado(coleccion) {
   const contenedor = document.querySelector(".pokemon-list");
   contenedor.textContent = '';
-  
-  const fragmento = document.createDocumentFragment();
 
+  const fragmento = document.createDocumentFragment();
   coleccion.forEach(pokemon => {
     const tarjeta = crearTarjeta(pokemon);
     const li = document.createElement('li');
@@ -129,16 +127,16 @@ function renderizarListado(coleccion) {
   });
   contenedor.append(fragmento);
 }
+
 async function obtenerPokemons() {
   try {
-    // 20 Pokémon
     const respuesta = await fetch("https://pokeapi.co/api/v2/pokemon?limit=20");
     const datos = await respuesta.json();
     const promesasDetalles = datos.results.map(async (pokemon) => {
       const res = await fetch(pokemon.url);
       return res.json();
     });
-    
+
     const listadoFinal = await Promise.all(promesasDetalles);
     renderizarListado(listadoFinal);
 
@@ -146,4 +144,5 @@ async function obtenerPokemons() {
     console.error("Hubo un error al consultar la PokéAPI:", error);
   }
 }
+
 obtenerPokemons();
