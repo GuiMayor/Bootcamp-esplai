@@ -1,4 +1,4 @@
-const pokemon = [
+const pokemons = [
   {
     id: 1,
     nombre: "Bulbasaur",
@@ -130,6 +130,24 @@ function crearTarjeta(pokemon) {
 
   return article;
 }
+
+function renderizarListado(coleccion) {
+  const contenedor = document.querySelector(".pokemon-list");
+    contenedor.textContent = ''; 
+    const fragmento = document.createDocumentFragment();
+    coleccion.forEach(pokemon => {
+        const tarjeta = crearTarjeta(pokemon);
+        // se envuelve la tarjeta en un <li>
+        const li = document.createElement('li');
+        li.append(tarjeta);
+        fragmento.append(li);
+    });
+    contenedor.append(fragmento);
+  
+}
+renderizarListado(pokemons);
+
+
 const contenedor = document.querySelector(".pokemon-list");
 pokemon.forEach((p) => {
   const tarjeta = crearTarjeta(p);
