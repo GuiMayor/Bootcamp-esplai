@@ -150,20 +150,11 @@ function crearTarjeta(pokemon) {
   // crear el contenedor de la imagen y el badge (ID)
   const contenedorImagen = document.createElement("div");
   contenedorImagen.classList.add("card-imagen");
-function crearTarjeta(pokemon) {
-  const article = document.createElement("article");
-  article.classList.add("card");
-  // crear el contenedor de la imagen y el badge (ID)
-  const contenedorImagen = document.createElement("div");
-  contenedorImagen.classList.add("card-imagen");
 
   const img = document.createElement("img");
   img.setAttribute("src", pokemon.sprites.front_default);
   img.setAttribute("alt", pokemon.name);
 
-  const badge = document.createElement("span");
-  badge.classList.add("card-badge");
-  badge.textContent = `ID/${pokemon.id}`;
   const badge = document.createElement("span");
   badge.classList.add("card-badge");
   badge.textContent = `ID/${pokemon.id}`;
@@ -189,22 +180,7 @@ function crearTarjeta(pokemon) {
     li.append(boton);
     listaTipos.append(li);
   });
-  contenido.append(nombre, listaTipos);
-  // evolución
-  // if (pokemon.evolucion) {
-  //   const bloqueEvolucion = document.createElement("p");
-  //   bloqueEvolucion.classList.add("evolution");
-
-  //   const etiquetaEvo = document.createElement("strong");
-  //   etiquetaEvo.textContent = "Evoluciona de:";
-
-  //   const textoEvo = document.createTextNode(` ${pokemon.evolucion}`);
-
-  //   bloqueEvolucion.append(etiquetaEvo, textoEvo);
-  //   contenido.append(bloqueEvolucion);
-  // }
-
-  // // tarjeta completa
+  
   contenido.append(nombre, listaTipos);
   article.append(contenedorImagen, contenido);
 
@@ -245,5 +221,4 @@ async function obtenerPokemons() {
   }
 }
 obtenerPokemons();
-
 
