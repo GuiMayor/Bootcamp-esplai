@@ -75,57 +75,40 @@ const pokemons = [
 function crearTarjeta(pokemon) {
   const article = document.createElement("article");
   article.classList.add("card");
+
   // crear el contenedor de la imagen y el badge (ID)
   const contenedorImagen = document.createElement("div");
   contenedorImagen.classList.add("card-imagen");
 
   const img = document.createElement("img");
-  img.setAttribute("src", pokemon.imagen);
-  img.setAttribute("alt", pokemon.nombre);
+  img.setAttribute("src", pokemon.sprites.front_default);
+  img.setAttribute("alt", pokemon.name);
 
   const badge = document.createElement("span");
   badge.classList.add("card-badge");
   badge.textContent = `ID/${pokemon.id}`;
-
   contenedorImagen.append(img, badge);
 
-  // Nombre y tipo del pokemon
+  // Contenedor de información
   const contenido = document.createElement("div");
   contenido.classList.add("contenido");
 
   const nombre = document.createElement("h3");
-  nombre.textContent = pokemon.nombre;
+  nombre.textContent = pokemon.name;
 
   const listaTipos = document.createElement("ul");
   listaTipos.classList.add("types");
 
-  contenido.append(nombre, listaTipos);
-
-  // Recorrer los tipos y crear
-  pokemon.tipos.forEach((tipo) => {
+  pokemon.types.forEach((item) => {
     const li = document.createElement("li");
     const boton = document.createElement("button");
     boton.setAttribute("type", "button");
-    boton.textContent = tipo;
+    boton.textContent = item.type.name;
     li.append(boton);
     listaTipos.append(li);
   });
+
   contenido.append(nombre, listaTipos);
-  // evolución
-  if (pokemon.evolucion) {
-    const bloqueEvolucion = document.createElement("p");
-    bloqueEvolucion.classList.add("evolution");
-
-    const etiquetaEvo = document.createElement("strong");
-    etiquetaEvo.textContent = "Evoluciona de:";
-
-    const textoEvo = document.createTextNode(` ${pokemon.evolucion}`);
-
-    bloqueEvolucion.append(etiquetaEvo, textoEvo);
-    contenido.append(bloqueEvolucion);
-  }
-
-  // tarjeta completa
   article.append(contenedorImagen, contenido);
 
   return article;
@@ -133,24 +116,33 @@ function crearTarjeta(pokemon) {
 
 function renderizarListado(coleccion) {
   const contenedor = document.querySelector(".pokemon-list");
-    contenedor.textContent = ''; 
-    const fragmento = document.createDocumentFragment();
-    coleccion.forEach(pokemon => {
-        const tarjeta = crearTarjeta(pokemon);
-        // se envuelve la tarjeta en un <li>
-        const li = document.createElement('li');
-        li.append(tarjeta);
-        fragmento.append(li);
-    });
-    contenedor.append(fragmento);
-  
+  contenedor.textContent = '';
+
+  const fragmento = document.createDocumentFragment();
+  coleccion.forEach(pokemon => {
+    const tarjeta = crearTarjeta(pokemon);
+    const li = document.createElement('li');
+    li.append(tarjeta);
+    fragmento.append(li);
+  });
+  contenedor.append(fragmento);
 }
-renderizarListado(pokemons);
 
+async function obtenerPokemons() {
+  try {
+    const respuesta = await fetch("https://pokeapi.co/api/v2/pokemon?limit=20");
+    const datos = await respuesta.json();
+    const promesasDetalles = datos.results.map(async (pokemon) => {
+      const res = await fetch(pokemon.url);
+      return res.json();
+    });
 
-const contenedor = document.querySelector(".pokemon-list");
-pokemon.forEach((p) => {
-  const tarjeta = crearTarjeta(p);
-  contenedor.append(tarjeta);
-  console.log("Tarjeta creada:", p.nombre);
-});
+    const listadoFinal = await Promise.all(promesasDetalles);
+    renderizarListado(listadoFinal);
+
+  } catch (error) {
+    console.error("Hubo un error al consultar la PokéAPI:", error);
+  }
+}
+
+obtenerPokemons();
