@@ -130,7 +130,7 @@ function renderizarListado(coleccion) {
 
 async function obtenerPokemons() {
   try {
-    const respuesta = await fetch("https://pokeapi.co/api/v2/pokemon?limit=20");
+    const respuesta = await fetch("https://pokeapi.co/api/v2/pokemon?limit=-1");
     const datos = await respuesta.json();
     const promesasDetalles = datos.results.map(async (pokemon) => {
       const res = await fetch(pokemon.url);
