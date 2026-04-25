@@ -4,6 +4,9 @@
     --color-gris-fondo: #f2f2f2;
     --fuente-principal: 'Ubuntu', sans-serif; 
 }
+html {
+  scroll-behavior: smooth;
+}
 
 * {
     margin: 0;
@@ -24,9 +27,21 @@ body {
     max-width: 1100px;
 }
 
+
 header {
-    width: 100%;
-    margin-bottom: 40px;
+  width: 100%;
+  margin-bottom: 40px;  
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #ffcb05;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.search-pokemon {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .search-pokemon input {
@@ -119,4 +134,22 @@ header {
     color: #999;
     font-size: 0.85rem;
     text-transform: none;
+}
+/* movimiento */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+  will-change: transform; 
+}
+
+/* vuelo */
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  border-color: #ffcb05; 
+}
+
+.card:hover .card-imagen img {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
 }
